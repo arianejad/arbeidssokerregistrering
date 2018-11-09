@@ -67,6 +67,7 @@ function loggBesvarelse(store: any, action: Action, frontendlogger: Frontendlogg
     if (action.type === RegistrerbrukerActionTypes.REG_BRUKER_STATUS_OK) {
         const { besvarelse } = action.data;
         frontendlogger.event('registrering.besvarelse.helseHinder', {'helseHinder': besvarelse.helseHinder}, {});
+        frontendlogger.event('registrering.besvarelse.andreForhold', {'andreForhold': besvarelse.andreForhold}, {});
         frontendlogger.event('registrering.besvarelse.utdanning', {'utdanning': besvarelse.utdanning}, {});
         frontendlogger.event('registrering.besvarelse.sistestilling.samsvarermedinfofraaareg',
             {'samsvarermedinfofraareg': brukersSvarSamsvarerMedInfoFraAAReg(mapTilSvarState(besvarelse), jobbetSeksAvTolvSisteManeder)}, {}); // tslint:disable-line:max-line-length
